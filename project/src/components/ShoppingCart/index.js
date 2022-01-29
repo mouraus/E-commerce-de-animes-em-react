@@ -9,22 +9,19 @@ function ShoppingCart({ animeList, handleShoppingCart }) {
 
 
 
-                    <div className='empty__shopping__cart'>
-                        <h2 className='carShopping'>Carrinho de Compras</h2>
-
-                        {/* <h3 className=''>Carrinho Vazio</h3> */}
-                    </div>
-
+                <div className='empty__shopping__cart'>
+                    <h2 className='carShopping'>Carrinho de Compras</h2>
+                </div>
 
 
                 {animeList.map((item) => (
-                
+
 
                     <>
-                       
+
                         {item.quantity > 0 &&
 
-                            <div key={item.id} className="card__inner__container">
+                            <div  key={item.id} className="card__inner__container">
 
 
                                 <h6>{item.title}</h6>
@@ -51,6 +48,9 @@ function ShoppingCart({ animeList, handleShoppingCart }) {
                     </>
 
                 ))}
+                <div className="container__finishing__button">
+                    <button className='finished' onClick={() => window.location.href = window.location.href}>Finalizar Compra</button>
+                </div>
             </div >
 
         </>

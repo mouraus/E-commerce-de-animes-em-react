@@ -1,32 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600&family=Roboto:wght@400;700&family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-*{
+* {
   font-family: 'Roboto', sans-serif;
-    margin: 0;
+  margin: 0;
   box-sizing: border-box;
 }
-.App{
+
+.App {
   min-height: 100vh;
   width: 100%;
 }
-body{
+
+body {
   color: #fff;
   background-color: #292929;
 }
 
-.container{
+.container {
   display: flex;
 }
-.cards{
+
+.cards {
 
   display: flex;
   flex-wrap: wrap;
   width: 70%;
   height: fit-content;
-  border: 5px solid rgb(255, 38, 0);
 }
 
-footer{
+footer {
   text-align: center;
   line-height: 25px;
   background: #222222;

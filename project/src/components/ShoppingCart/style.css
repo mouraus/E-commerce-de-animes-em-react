@@ -1,35 +1,34 @@
 .container__shopping__cart {
-    border: 5px solid hotpink;
     display: flex;
     flex-direction: column;
-    width: 35%;
-    height: auto;
-    /* margin-top: 15px; */
+    width: 30%;
+    height: 100%;
+    /* max-height: 400px; */
+    flex-wrap: wrap;
+    /* background-color: rgb(242, 255, 0); */
+    border: 3px solid rgb(0, 0, 0);
+    margin-top: 15px;
 
+}
+
+
+
+.container__shopping__cart img {
+    width: 60%;
 }
 
 .card__inner__container {
-    border: 5px solid rgb(0, 255, 157);
     width: 40%;
 
-}
-
-.container__shopping__cart img {
-    width: 40%;
 }
 
 .container__cart__features {
     display: flex;
     justify-content: space-between;
-    border: 2px solid saddlebrown;
     width: 100%;
     flex-wrap: wrap;
+    margin-bottom: 15px;
 
-}
-
-.price {
-    /* display: block; */
-    border: 1px solid gold;
 }
 
 .quantity {
@@ -42,7 +41,6 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border: 2px solid red;
     flex-wrap: wrap;
 
 }
@@ -56,22 +54,41 @@
     width: 35px;
 }
 
-.add__button{
-    background-color:green;
+.add__button {
+    background-color: green;
 }
 
-.remove__button{
+.remove__button {
     background-color: red;
 }
 
-.carShopping{
+.carShopping {
     text-align: center;
 }
 
-.empty__shopping__cart{
+.empty__shopping__cart {
     display: flex;
     height: 100px;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+}
+
+.container__finishing__button {
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+
+}
+
+.finished {
+    padding: 15px;
+    width: 50%;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    border-radius: 7px;
+    background-color: rgb(255, 167, 60);
+    cursor: pointer;
 }

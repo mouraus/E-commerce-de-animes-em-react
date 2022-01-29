@@ -7,8 +7,11 @@ import ShoppingCart from './components/ShoppingCart';
 
 
 function App() {
+  const BASE_URL = 'https://api.jikan.moe/v4/';
 
   const [animeList, setAnimeList] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
 
@@ -19,9 +22,8 @@ function App() {
 
   async function handlePopulateCards() {
 
-    const BASE_URL = 'https://api.jikan.moe/v4/';
 
-    const response = await fetch(`${BASE_URL}top/anime`);
+    const response = await fetch(`${BASE_URL}anime?type=tv`);
 
     const dataAnime = await response.json();
 
@@ -45,8 +47,29 @@ function App() {
 
     }
     setAnimeList(formattedAnimeList);
+    console.log(formattedAnimeList.length);
+  }
+
+  function handleSearchAnime(searchTerm) {
+    setSearchTerm(searchTerm);
+
+    if (searchTerm !== "") {
+      const newAnimeList = animeList.filter((anime) => {
+
+        return anime
+          .title
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+
+      });
+      setSearchResults(newAnimeList);
+    }
+    else {
+      setSearchResults(animeList);
+    }
 
   }
+
 
   function handleShoppingCart(value, animeId) {
 
@@ -74,12 +97,15 @@ function App() {
 
   return (
     <div className="App">
-
-      <Header />
+      <Header
+        handleSearchAnime={handleSearchAnime}
+        searchTerm={searchTerm}
+      />
       <div className='container'>
 
         <div className='cards'>
-          <Card animelist={animeList} handleShoppingCart={handleShoppingCart} />
+          <Card animelist={searchTerm < 1 ? animeList : searchResults}
+            handleShoppingCart={handleShoppingCart} />
         </div>
 
         <ShoppingCart animeList={animeList} handleShoppingCart={handleShoppingCart} />

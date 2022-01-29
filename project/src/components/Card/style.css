@@ -1,6 +1,5 @@
 .card {
     font-size: 14px;
-    border: 2px solid rgb(255, 255, 255);
     color: white;
     width: 200px;
     display: flex;
@@ -26,7 +25,6 @@
 .container__buttons {
     display: flex;
     justify-content: space-between;
-    border: 5px solid greenyellow;
     width: 100%;
     padding: 10px;
     /* transition: all ease 0.5s; */
@@ -34,7 +32,7 @@
 
 
 .add__anime__button {
-    border: 3px solid tomato;
+    /* border: 3px solid tomato; */
     cursor: pointer;
     width: 60%;
     border-radius: 7px;
