@@ -19,3 +19,7 @@ input {
 
 
 }
+
+input::placeholder{
+    padding: 5px;
+}

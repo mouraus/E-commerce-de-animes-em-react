@@ -19,8 +19,17 @@
     transform: scale(0.9);
 
 }
-
-
+.section__title h1 {
+    margin: 15px;
+    padding-left: 5px;
+    border-left: 3px solid red;
+  }
+.animeList__row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
 
 .container__buttons {
     display: flex;

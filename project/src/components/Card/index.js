@@ -1,11 +1,17 @@
 import './style.css';
 
 
-function Card({ animelist, handleShoppingCart }) {
+function Card({ animelist, handleShoppingCart, SectionTitle }) {
 
 
     return (
         <>
+            <div className='section__title'>
+                <h1>{SectionTitle}</h1>
+            </div>
+            
+            <div className='animeList__row'>
+
             {animelist.map((item) => (
 
                 <div key={item.id} className='card'>
@@ -22,6 +28,7 @@ function Card({ animelist, handleShoppingCart }) {
                     </div>
                 </div>
             ))}
+                </div>
 
         </>
     );
