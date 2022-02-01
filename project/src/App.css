@@ -20,6 +20,24 @@ body {
   display: flex;
 }
 
+.animeList__row {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.animes {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.all__animes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .cards {
 
   display: flex;
@@ -27,6 +45,13 @@ body {
   width: 70%;
   height: fit-content;
 }
+
+.cards h1 {
+  margin: 15px;
+  padding-left: 5px;
+  border-left: 3px solid red;
+}
+
 
 footer {
   text-align: center;

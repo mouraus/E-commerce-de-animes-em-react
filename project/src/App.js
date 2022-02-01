@@ -10,6 +10,7 @@ function App() {
   const BASE_URL = 'https://api.jikan.moe/v4/';
 
   const [animeList, setAnimeList] = useState([]);
+  const [animeTopList, setAnimeTopList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -23,12 +24,14 @@ function App() {
   async function handlePopulateCards() {
 
 
-    const response = await fetch(`${BASE_URL}anime?type=tv`);
-
-    const dataAnime = await response.json();
+    const responseAnimeList = await fetch(`${BASE_URL}anime?type=tv`);
+    const responseTopAnimes = await fetch(`${BASE_URL}top/anime?type=tv&limit=4`);
+    const dataAnime = await responseAnimeList.json();
+    const dataTopAnimes = await responseTopAnimes.json();
 
     let IdNext = 1;
 
+    const formattedTopAnimesList = [];
     const formattedAnimeList = [];
 
     for (const data of dataAnime.data) {
@@ -46,8 +49,29 @@ function App() {
       IdNext++;
 
     }
+
+    for (const data of dataTopAnimes.data) {
+
+      formattedTopAnimesList.push({
+
+        id: IdNext,
+        title: data.title,
+        image: data.images.jpg.image_url,
+        price: 2500,
+        quantity: 0
+
+      });
+
+      IdNext++;
+
+    }
+    setAnimeTopList(formattedTopAnimesList);
+    formattedAnimeList.push(...formattedTopAnimesList);
     setAnimeList(formattedAnimeList);
     console.log(formattedAnimeList.length);
+
+
+
   }
 
   function handleSearchAnime(searchTerm) {
@@ -102,10 +126,26 @@ function App() {
         searchTerm={searchTerm}
       />
       <div className='container'>
-
         <div className='cards'>
-          <Card animelist={searchTerm < 1 ? animeList : searchResults}
-            handleShoppingCart={handleShoppingCart} />
+
+          <div className='animeList__row'>
+            <h1>Top Animes</h1>
+            <div className='animes'>
+              <Card
+                animelist={searchTerm < 1 ? animeTopList : searchResults}
+                handleShoppingCart={handleShoppingCart} />
+            </div>
+          </div>
+
+          <div className='animeList'>
+            <h1 className='all__animes__title'>Todos os Animes</h1>
+            <div className='all__animes'>
+              <Card
+                animelist={searchTerm < 1 ? animeList : searchResults}
+                handleShoppingCart={handleShoppingCart} />
+            </div>
+          </div>
+
         </div>
 
         <ShoppingCart animeList={animeList} handleShoppingCart={handleShoppingCart} />

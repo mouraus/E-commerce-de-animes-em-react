@@ -27,12 +27,10 @@
     justify-content: space-between;
     width: 100%;
     padding: 10px;
-    /* transition: all ease 0.5s; */
 }
 
 
 .add__anime__button {
-    /* border: 3px solid tomato; */
     cursor: pointer;
     width: 60%;
     border-radius: 7px;
@@ -45,7 +43,7 @@
 
 }
 
-.add__anime__button:hover{
+.add__anime__button:hover {
     transform: scale(1);
 }
 
@@ -54,3 +52,4 @@
     transform: scale(1);
 
 }
+

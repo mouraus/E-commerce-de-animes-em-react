@@ -12,9 +12,10 @@ input {
     outline: none;
     border: none;
     border-radius: 5px;
-    /* margin-right: 10%; */
-    width: 30%;
-    height: 80%;
+    background-color: #292929;
+    width: 20%;
+    height: 65%;
+    color: honeydew;
 
 
 }

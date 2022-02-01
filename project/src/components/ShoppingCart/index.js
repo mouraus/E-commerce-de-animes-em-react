@@ -7,10 +7,8 @@ function ShoppingCart({ animeList, handleShoppingCart }) {
         <>
             <div className="container__shopping__cart">
 
-
-
                 <div className='empty__shopping__cart'>
-                    <h2 className='carShopping'>Carrinho de Compras</h2>
+                    <h2 className='shopping__cart'>Carrinho de Compras</h2>
                 </div>
 
 
@@ -21,12 +19,12 @@ function ShoppingCart({ animeList, handleShoppingCart }) {
 
                         {item.quantity > 0 &&
 
-                            <div  key={item.id} className="card__inner__container">
+                            <div key={item.id} className="card__inner__container"  >
 
 
                                 <h6>{item.title}</h6>
 
-                                <img src={item.image} alt="algo" />
+                                <img src={item.image} alt="capa do anime" />
 
                                 <div className='container__cart__features'>
 

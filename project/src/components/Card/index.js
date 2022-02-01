@@ -5,7 +5,6 @@ function Card({ animelist, handleShoppingCart }) {
 
 
     return (
-
         <>
             {animelist.map((item) => (
 
