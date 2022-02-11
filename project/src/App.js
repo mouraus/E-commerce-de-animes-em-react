@@ -125,36 +125,42 @@ function App() {
         handleSearchAnime={handleSearchAnime}
         searchTerm={searchTerm}
       />
-      <div className='container'>
+      {animeList.length > 0 &&
+        < div className='container'>
 
-        <div className='products'>
-
-          <Card
-            SectionTitle='Top Animes'
+          <div className='products'>
+            <Card
+              SectionTitle={searchTerm !== "" ? '' : 'Top Animes'}
+            searchResults={searchResults}
             animelist={searchTerm < 1 ? animeTopList : []}
             handleShoppingCart={handleShoppingCart} />
 
 
-          <Card
-            SectionTitle='Todos os Animes'
-            animelist={searchTerm < 1 ? animeList : searchResults}
-            handleShoppingCart={handleShoppingCart} />
+
+
+            <Card
+              SectionTitle='Todos os Animes'
+              animelist={searchTerm < 1 ? animeList : searchResults}
+              handleShoppingCart={handleShoppingCart} />
+
+          </div>
+
+          <ShoppingCart
+            cartItems={cartItems}
+            animeList={animeList}
+            handleShoppingCart={handleShoppingCart}
+          />
 
         </div>
+      }
 
-        <ShoppingCart
-          animeList={cartItems}
-          handleShoppingCart={handleShoppingCart}
-        />
-
-      </div>
 
 
       <footer>
         <div>Feito por Gabriel Moura</div>
         <div>Informações do site https://jikan.moe/</div>
       </footer>
-    </div>
+    </div >
   );
 }
 
