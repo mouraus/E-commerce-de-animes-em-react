@@ -1,15 +1,15 @@
 import './style.css';
-function ShoppingCart({ animeList, handleShoppingCart }) {
+import { Fragment } from 'react';
+function ShoppingCart({ cartItems, animeList, handleShoppingCart }) {
 
-  const itemsTotalPrice = animeList.reduce((acc, currentValue) => acc + currentValue.price * currentValue.quantity, 0);
-  const itemsOrder = animeList.sort((a, b) => b.quantity * b.price - a.quantity * a.price);
+  const itemsTotalPrice = cartItems.reduce((acc, currentValue) => acc + currentValue.price * currentValue.quantity, 0);
+  const itemsOrder = cartItems.sort((a, b) => b.quantity * b.price - a.quantity * a.price);
 
 
 
 
   return (
     <>
-
       < div className="container__shopping__cart">
         <div className='header__shopping__cart'>
           <h2 className='shopping__cart'>Carrinho de Compras</h2>
@@ -18,10 +18,10 @@ function ShoppingCart({ animeList, handleShoppingCart }) {
         </div>
 
         {itemsOrder &&
-          animeList.map((item) => (
+          cartItems.map((item) => (
 
 
-            <>
+            <Fragment key={item.id}>
 
               {item.quantity > 0 &&
 
@@ -49,28 +49,30 @@ function ShoppingCart({ animeList, handleShoppingCart }) {
                 </div >
               }
 
-            </>
+            </Fragment>
 
           ))}
 
         <div className="container__finishing__button">
           {itemsTotalPrice > 0 &&
             <div className='total__price'><strong>Total:R${(itemsTotalPrice / 100).toFixed(2)}</strong></div>}
-          <button className='finished' onClick={(ev) => {
-            if (ev.currentTarget.onclick) {
-              window.location.reload();
-              alert('Compra Realizada com sucesso!!!');
-            }
-          }
+          
+          {itemsTotalPrice > 0 &&
 
-          }>Finalizar Compra</button>
+            < button className='finished' onClick={(ev) => {
+              if (ev.currentTarget.onclick) {
+                window.location.reload();
+                alert('Compra Realizada com sucesso!!!');
+              }
+            }
+
+            }>Finalizar Compra</button>
+
+          }
+      
         </div>
       </div >
-
-
-
     </>
-
   );
 }
 
